@@ -1,5 +1,5 @@
 /*
-Copyright (c) 2025 Ahmed R. Sadik, Honda Research Institute Europe GmbH 
+Copyright (c) 2025 Ahmed R. Sadik, Honda Research Institute Europe GmbH
 
 This source code is licensed under the MIT License found in the
 LICENSE file in the root directory of this source tree. This dataset contains smelly code for research and refactoring purposes.
@@ -11,25 +11,10 @@ public class Pizza {
     private String doughType;
     private String topping;
 
-    // Primitive Obsession
-    private boolean extraCheese;
-
-    // Data Clumps
-    private String customerFirstName;
-    private String customerLastName;
-    private String customerAddress;
-    private String customerPhoneNumber;
-    private String customerEmail;
-
-    // Temporary Fields
-    private String tempDiscountCode;
-    private String tempOrderNote;
-
     public Pizza(String size, String doughType, String topping) {
         this.size = size;
         this.doughType = doughType;
         this.topping = topping;
-        this.extraCheese = false; // Primitive Obsession
     }
 
     public void setSize(String size) {
@@ -56,34 +41,39 @@ public class Pizza {
         return topping;
     }
 
+    /**
+	 * @param firstName
+     * @param lastName
+     * @param address
+     * @param phoneNumber 
+     * @param email 
+	 */
     public void updateCustomerInfo(String firstName, String lastName, String address, String phoneNumber, String email) {
-        // Shotgun Surgery (changing multiple methods to update contact info)
-        this.customerFirstName = firstName;
-        this.customerLastName = lastName;
-        this.customerAddress = address;
-        this.customerPhoneNumber = phoneNumber;
-        this.customerEmail = email;
     }
 
+    /**
+	 * @param firstName
+     * @param lastName
+	 */
     public void updateCustomerName(String firstName, String lastName) {
-        // Shotgun Surgery (separate method to update name)
-        this.customerFirstName = firstName;
-        this.customerLastName = lastName;
     }
 
+    /**
+	 * @param address
+	 */
     public void updateCustomerAddress(String address) {
-        // Shotgun Surgery (separate method to update address)
-        this.customerAddress = address;
     }
 
+    /**
+	 * @param phoneNumber
+	 */
     public void updateCustomerPhoneNumber(String phoneNumber) {
-        // Shotgun Surgery (separate method to update phone number)
-        this.customerPhoneNumber = phoneNumber;
     }
 
+    /**
+	 * @param email  
+	 */
     public void updateCustomerEmail(String email) {
-        // Shotgun Surgery (separate method to update email)
-        this.customerEmail = email;
     }
 
     public void notifyForPromotion() {
