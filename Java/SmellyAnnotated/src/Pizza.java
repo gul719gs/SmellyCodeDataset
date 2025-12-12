@@ -4,94 +4,86 @@ Copyright (c) 2025 Ahmed R. Sadik, Honda Research Institute Europe GmbH
 This source code is licensed under the MIT License found in the
 LICENSE file in the root directory of this source tree. This dataset contains smelly code for research and refactoring purposes.
 */
+package src;
 
-
-public class Chef {
-    private Pizza pizza;
-    private boolean busy;
-    private int completedOrders;
-    private int breaksTaken;
-    private boolean kitchenClean;
+public class Pizza {
+    private String size;
+    private String doughType;
+    private String topping;
 
     // Primitive Obsession
     private boolean extraCheese;
 
     // Data Clumps
-    private String firstName;
-    private String lastName;
-    private String address;
-    private String phoneNumber;
-    private String email;
+    private String customerFirstName;
+    private String customerLastName;
+    private String customerAddress;
+    private String customerPhoneNumber;
+    private String customerEmail;
 
     // Temporary Fields
     private String tempDiscountCode;
     private String tempOrderNote;
 
-    public Chef() {
-        this.pizza = null;
-        this.busy = false;
-        this.completedOrders = 0;
-        this.breaksTaken = 0;
-        this.kitchenClean = true;
+    public Pizza(String size, String doughType, String topping) {
+        this.size = size;
+        this.doughType = doughType;
+        this.topping = topping;
         this.extraCheese = false; // Primitive Obsession
     }
 
-    public void bakePizza(String pizzaType) {
-        System.out.println("Chef is baking " + pizzaType + " pizza.");
-        this.pizza = new Pizza("Unknown", "Unknown", pizzaType); // Creating a Pizza instance
-        cutPizzaAndPutInBox();
+    public void setSize(String size) {
+        this.size = size;
     }
 
-    public void cutPizzaAndPutInBox() {
-        System.out.println("Chef is cutting the " + pizza.getTopping() + " pizza and putting it in a box.");
-        deliverPizza();
+    public void setDoughType(String doughType) {
+        this.doughType = doughType;
     }
 
-    public void deliverPizza() {
-        System.out.println("Chef is delivering the pizza to the cashier.");
+    public void setTopping(String topping) {
+        this.topping = topping;
     }
 
-    public void hurryUp() {
-        System.out.println("Chef is hurrying up.");
+    public String getSize() {
+        return size;
     }
 
-    public void cleanKitchen() {
-        System.out.println("Chef is cleaning the kitchen.");
-        this.kitchenClean = true;
+    public String getDoughType() {
+        return doughType;
     }
 
-    public boolean isBusy() {
-        return this.busy;
+    public String getTopping() {
+        return topping;
     }
 
-    public void updateContactInfo(String firstName, String lastName, String address, String phoneNumber, String email) {
+    public void updateCustomerInfo(String firstName, String lastName, String address, String phoneNumber, String email) {
         // Shotgun Surgery (changing multiple methods to update contact info)
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
+        this.customerFirstName = firstName;
+        this.customerLastName = lastName;
+        this.customerAddress = address;
+        this.customerPhoneNumber = phoneNumber;
+        this.customerEmail = email;
     }
 
-    public void updateName(String firstName, String lastName) {
+    public void updateCustomerName(String firstName, String lastName) {
         // Shotgun Surgery (separate method to update name)
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.customerFirstName = firstName;
+        this.customerLastName = lastName;
     }
 
-    public void updateAddress(String address) {
+    public void updateCustomerAddress(String address) {
         // Shotgun Surgery (separate method to update address)
-        this.address = address;
+        this.customerAddress = address;
     }
 
-    public void updatePhoneNumber(String phoneNumber) {
+    public void updateCustomerPhoneNumber(String phoneNumber) {
         // Shotgun Surgery (separate method to update phone number)
-        this.phoneNumber = phoneNumber;
+        this.customerPhoneNumber = phoneNumber;
     }
 
-    public void updateEmail(String email) {
+    public void updateCustomerEmail(String email) {
         // Shotgun Surgery (separate method to update email)
-        this.email = email;
+        this.customerEmail = email;
     }
 
     public void notifyForPromotion() {
@@ -146,49 +138,44 @@ public class Chef {
 
     public void longMethod() {
         // Long Method (too many tasks in a single method)
-        System.out.println("Chef is handling many tasks in a single method");
-        this.bakePizza("Cheese");
-        this.cutPizzaAndPutInBox();
-        this.deliverPizza();
-        this.hurryUp();
-        this.cleanKitchen();
-        this.updateContactInfo("John", "Doe", "123 Street", "555-5555", "john.doe@example.com");
+        System.out.println("Pizza is handling many tasks in a single method");
+        this.setSize("Large");
+        this.setDoughType("Thin Crust");
+        this.setTopping("Pepperoni");
+        this.updateCustomerInfo("John", "Doe", "123 Street", "555-5555", "john.doe@example.com");
         this.notifyForPromotion();
         this.notifyForDiscount();
         this.notifyForNewArrivals();
         this.applyDiscount();
         this.applyLoyaltyPoints();
         this.handleComplaint("cold pizza");
-        this.askForReceipt();
-        this.chainOfMethods();
-        this.middlemanMethod();
-        this.accessInternalDetails();
     }
 
-    public void orderWithUnnecessaryDetails() {
+    public void orderWithUnnecessaryDetails(String pizzaType, String size, String crustType, String toppings, boolean extraCheese, String discountCode) {
         // Long Parameter List (too many parameters in the method)
-        System.out.println("Placing a detailed order for pizza with extra cheese and discount code");
-        this.bakePizza("Veggie");
+        System.out.println("Placing a detailed order for " + pizzaType + " pizza with " + size + ", " + crustType + ", " + toppings + ", extra cheese: " + extraCheese + ", discount code: " + discountCode);
+        this.setSize(size);
+        this.setDoughType(crustType);
+        this.setTopping(toppings);
         this.applyDiscount();
-        this.applyLoyaltyPoints();
     }
 
     public void duplicateMethod() {
         // Duplicate Code (repeating functionality)
-        System.out.println("Chef is making a duplicate order");
-        this.bakePizza("Cheese");
-        this.bakePizza("Cheese");
+        System.out.println("Customer is making a duplicate order");
+        this.setTopping("Cheese");
+        this.setTopping("Cheese");
     }
 
     public void chainOfMethods() {
         // Message Chain (calling methods on objects returned by another method)
-        System.out.println("Chef is initiating a message chain");
-        this.cleanKitchen();
+        System.out.println("Pizza is initiating a message chain");
+        this.updateCustomerAddress("123 Street");
     }
 
     public void middlemanMethod() {
         // Middle Man (methods that delegate to other methods)
-        System.out.println("Chef is calling a middleman method");
+        System.out.println("Pizza is calling a middleman method");
         this.middleMethod();
     }
 
@@ -203,10 +190,44 @@ public class Chef {
 
     public void accessInternalDetails() {
         // Inappropriate Intimacy (accessing internal details of another class)
-        System.out.println("Accessing internal details of Pizza: " + this.pizza.getTopping());
+        System.out.println("Accessing internal details: " + this.size + ", " + this.doughType + ", " + this.topping);
     }
 
     public void refusedBequest() {
         // Refused Bequest (method that should be inherited but is empty)
+    }
+}
+
+class CheesePizza extends Pizza {
+    public CheesePizza() {
+        super("Medium", "Regular", "Cheese");
+    }
+
+    @Override
+    public void handleComplaint(String complaint) {
+        // Switch Statements (using if-else to simulate switch)
+        if (complaint.equals("too much cheese")) {
+            System.out.println("Handling complaint: Too much cheese");
+        } else {
+            super.handleComplaint(complaint);
+        }
+    }
+}
+
+class VeggiePizza extends Pizza {
+    public VeggiePizza() {
+        super("Medium", "Whole Wheat", "Veggies");
+    }
+}
+
+class TunaPizza extends Pizza {
+    public TunaPizza() {
+        super("Large", "Thin Crust", "Tuna");
+    }
+}
+
+class PepperoniPizza extends Pizza {
+    public PepperoniPizza() {
+        super("Large", "Regular", "Pepperoni");
     }
 }
