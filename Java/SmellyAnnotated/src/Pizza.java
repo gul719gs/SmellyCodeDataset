@@ -141,14 +141,21 @@ public class Pizza {
         this.handleComplaint("cold pizza");
     }
 
-    public void orderWithUnnecessaryDetails(String pizzaType, String size, String crustType, String toppings, boolean extraCheese, String discountCode) {
-        // Long Parameter List (too many parameters in the method)
-        System.out.println("Placing a detailed order for " + pizzaType + " pizza with " + size + ", " + crustType + ", " + toppings + ", extra cheese: " + extraCheese + ", discount code: " + discountCode);
-        this.setSize(size);
-        this.setDoughType(crustType);
-        this.setTopping(toppings);
-        this.applyDiscount();
-    }
+   public void order(PizzaOrderDetails order) {
+
+    System.out.println("Placing a detailed order for " + order.pizzaType
+        + " pizza with " + order.size
+        + ", " + order.crustType
+        + ", " + order.toppings
+        + ", extra cheese: " + order.extraCheese
+        + ", discount code: " + order.discountCode);
+
+    this.setSize(order.size);
+    this.setDoughType(order.crustType);
+    this.setTopping(order.toppings);
+    this.applyDiscount();
+}
+
 
     public void duplicateMethod() {
         // Duplicate Code (repeating functionality)
