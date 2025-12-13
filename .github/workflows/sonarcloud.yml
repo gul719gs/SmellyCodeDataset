@@ -28,7 +28,8 @@ jobs:
       - name: Compile Java Sources
         run: |
           mkdir -p classes
-          javac $(find Java/SmellyAnnotated -name "*.java") -d classes
+          cd Java/SmellyAnnotated/src
+          javac *.java -d ../../../classes
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
