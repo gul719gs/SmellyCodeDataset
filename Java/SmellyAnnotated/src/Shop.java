@@ -132,6 +132,6 @@ public class Shop {
     }
 
     public void anotherUnusedMethod() {
-        // Dead Code (method is never
+        // Dead Code method is never
     }
 }
