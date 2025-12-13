@@ -141,20 +141,21 @@ public class Pizza {
         this.handleComplaint("cold pizza");
     }
 
-   public void order(PizzaOrderDetails order) {
+   public void placeOrder(PizzaOrderDetails order) {
 
-    System.out.println("Placing a detailed order for " + order.pizzaType
-        + " pizza with " + order.size
-        + ", " + order.crustType
-        + ", " + order.toppings
-        + ", extra cheese: " + order.extraCheese
-        + ", discount code: " + order.discountCode);
+    System.out.println("Placing a detailed order for " + order.getPizzaType()
+        + " pizza with " + order.getSize()
+        + ", " + order.getCrustType()
+        + ", " + order.getToppings()
+        + ", extra cheese: " + order.hasExtraCheese()
+        + ", discount code: " + order.getDiscountCode());
 
-    this.setSize(order.size);
-    this.setDoughType(order.crustType);
-    this.setTopping(order.toppings);
+    this.setSize(order.getSize());
+    this.setDoughType(order.getCrustType());
+    this.setTopping(order.getToppings());
     this.applyDiscount();
 }
+
 
 
     public void duplicateMethod() {
