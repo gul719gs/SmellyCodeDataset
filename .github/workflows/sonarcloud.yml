@@ -14,7 +14,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -24,8 +25,16 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Compile Java Sources
+        run: |
+          mkdir -p classes
+          javac $(find Java/SmellyAnnotated -name "*.java") -d classes
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.java.binaries=classes
