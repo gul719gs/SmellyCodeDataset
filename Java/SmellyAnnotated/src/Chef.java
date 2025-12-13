@@ -2,15 +2,26 @@ package src;
 
 public class Chef {
 
+    private boolean busy = false;
+
     public Chef() {
-        // Default constructor
     }
 
-    public void preparePizza() {
-        System.out.println("Chef is preparing pizza");
+    public void bakePizza(String type) {
+        busy = true;
+        System.out.println("Chef is baking " + type + " pizza");
+        busy = false;
     }
 
-    public void prepareDrink() {
-        System.out.println("Chef is preparing drink");
+    public void hurryUp() {
+        System.out.println("Chef is hurrying up!");
+    }
+
+    public void cleanKitchen() {
+        System.out.println("Chef is cleaning the kitchen");
+    }
+
+    public boolean isBusy() {
+        return busy;
     }
 }
