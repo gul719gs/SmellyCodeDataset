@@ -5,6 +5,7 @@ This source code is licensed under the MIT License found in the
 LICENSE file in the root directory of this source tree. This dataset contains smelly code for research and refactoring purposes.
 */
 
+package src;
 
 public class Customer {
     private Shop pizzaShop;
